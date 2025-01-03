@@ -31,7 +31,9 @@ public class App extends ApplicationAdapter {
         shapeRenderer.setAutoShapeType(true);
 
         obstacles = new ObstacleList();
+
         obstacles.spawn(width, height);
+        scheduler.each(7000, this::spawnObstacle);
     }
 
 

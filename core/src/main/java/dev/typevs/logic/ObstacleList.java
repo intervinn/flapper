@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import java.util.ArrayList;
 
 public class ObstacleList extends ArrayList<Obstacle> {
-    public static final int SPEED = -20;
+    public static final int SPEED = -40;
     public static final int WIDTH = 50;
 
     public ObstacleList() {
@@ -25,7 +25,7 @@ public class ObstacleList extends ArrayList<Obstacle> {
 
     public void spawn(int width, int height) {
         Obstacle obstacle = Obstacle.random(WIDTH, height);
-        obstacle.move(width);
+        obstacle.move(width + WIDTH);
         add(obstacle);
     }
 

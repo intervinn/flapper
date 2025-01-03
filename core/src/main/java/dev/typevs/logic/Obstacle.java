@@ -31,11 +31,14 @@ public class Obstacle {
         Random random = new Random();
         Obstacle obstacle = new Obstacle();
 
+        int gap = random.nextInt(height) + Player.SIZE;
+        int gapY = random.nextInt(height);
+
         obstacle.top.width = width;
-        obstacle.top.height = random.nextInt(height/2);
+        obstacle.top.height = height - gapY - gap;
 
         obstacle.bottom.width = width;
-        obstacle.bottom.height = random.nextInt(height/2);
+        obstacle.bottom.height = height - obstacle.top.height - gap;
 
         obstacle.top.x = 0;
         obstacle.top.y = height - obstacle.top.height;
@@ -46,8 +49,9 @@ public class Obstacle {
     }
 
     public void draw(ShapeRenderer renderer) {
-        renderer.setColor(Color.GRAY);
+        renderer.setColor(Color.RED);
         renderer.rect(top.x, top.y, top.width, top.height);
+        renderer.setColor(Color.BLUE);
         renderer.rect(bottom.x, bottom.y, bottom.width, bottom.height);
     }
 }
