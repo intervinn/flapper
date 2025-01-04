@@ -16,34 +16,34 @@ public class Obstacle {
     }
 
     public void move(float x, float y) {
-        bottom.x += x;
-        top.x += x;
-        bottom.y += y;
-        top.y += y;
+        bottom.setX(bottom.getX() + x);
+        top.setX(top.getX() + x);
+        bottom.setY(bottom.getY() + y);
+        top.setY(top.getY() + y);
     }
 
     public void move(float x) {
-        bottom.x += x;
-        top.x += x;
+        bottom.setX(bottom.getX() + x);
+        top.setX(top.getX() + x);
     }
 
     public static Obstacle random(int width, int height) {
         Random random = new Random();
         Obstacle obstacle = new Obstacle();
 
-        int gap = random.nextInt(height) + Player.SIZE;
-        int gapY = random.nextInt(height);
+        int gap = random.nextInt(height) + (int)(Player.SIZE * 1.5);
+        int gapY = random.nextInt(height - Player.SIZE);
 
-        obstacle.top.width = width;
-        obstacle.top.height = height - gapY - gap;
+        obstacle.top.setWidth(width);
+        obstacle.top.setHeight(height - gapY - gap);
 
-        obstacle.bottom.width = width;
-        obstacle.bottom.height = height - obstacle.top.height - gap;
+        obstacle.bottom.setWidth(width);
+        obstacle.bottom.setHeight(height - obstacle.top.height - gap);
 
-        obstacle.top.x = 0;
-        obstacle.top.y = height - obstacle.top.height;
-        obstacle.bottom.x = 0;
-        obstacle.bottom.y = 0;
+        obstacle.top.setX(0);
+        obstacle.top.setY(height - obstacle.top.height);
+        obstacle.bottom.setX(0);
+        obstacle.bottom.setY(0);
 
         return obstacle;
     }
